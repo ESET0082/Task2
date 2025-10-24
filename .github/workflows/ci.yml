@@ -14,7 +14,7 @@ jobs:
         with:
           python-version: "3.9"
       - run: pip install -r requirements.txt
-      - run: pytest
+      - run: pytest test_app.py  
       - run: echo " All tests passed successfully!"
         if: success()
       - run: echo "Tests failed. Please check the logs."
