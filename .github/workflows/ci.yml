@@ -1,0 +1,44 @@
+name: CI - Pytest Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || echo "No requirements.txt found"
+          pip install pytest
+
+      # Step 4: Run Unit Tests using pytest
+      - name: Run Unit Tests
+        run: |
+          echo "Running tests with pytest..."
+          pytest --maxfail=1 --disable-warnings -q
+
+      # Step 5: Message if all tests passed
+      - name: Tests Passed
+        if: success()
+        run: echo "All tests passed successfully!"
+
+      # Step 6: Message if any test failed
+      - name: Tests Failed
+        if: failure()
+        run: echo "Tests failed. Please check the logs."
