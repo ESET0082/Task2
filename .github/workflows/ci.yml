@@ -24,10 +24,6 @@ jobs:
           pip install -r requirements.txt || echo "No requirements.txt found"
           pip install pytest
 
-      - name: Create Dummy Test
-        run: |
-          mkdir -p tests
-          echo 'def test_dummy(): assert 1 == 1' > tests/test_dummy.py
 
       - name: Run Unit Tests
         run: |
