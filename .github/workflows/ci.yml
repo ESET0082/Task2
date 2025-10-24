@@ -28,7 +28,7 @@ jobs:
       - name: Run Unit Tests
         run: |
           echo "Running tests with pytest..."
-          pytest tests/ --maxfail=1 --disable-warnings -q
+          pytest --maxfail=1 --disable-warnings -q
 
       - name: Tests Passed
         if: success()
