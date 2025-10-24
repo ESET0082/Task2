@@ -3,7 +3,7 @@ name: CI Basic Workflow
 on:
   push:
     branches:
-      - master
+      - main
   
 jobs:
   build:
