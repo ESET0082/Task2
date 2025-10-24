@@ -27,13 +27,13 @@ jobs:
           pip install -r requirements.txt || echo "No requirements.txt found"
           pip install pytest
 
-      # Step 4: Ensure tests folder exists with a dummy test
-      - name: Create Dummy Test if Missing
-        run: |
-          mkdir -p tests
-          if [ ! -f tests/test_dummy.py ]; then
-            echo 'def test_dummy(): assert 1 == 1' > tests/test_dummy.py
-          fi
+      # # Step 4: Ensure tests folder exists with a dummy test
+      # - name: Create Dummy Test if Missing
+      #   run: |
+      #     mkdir -p tests
+      #     if [ ! -f tests/test_dummy.py ]; then
+      #       echo 'def test_dummy(): assert 1 == 1' > tests/test_dummy.py
+      #     fi
 
       # Step 5: Run pytest on tests folder
       - name: Run Unit Tests
