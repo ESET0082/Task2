@@ -31,7 +31,8 @@ jobs:
       - name: Run Unit Tests
         run: |
           echo "Running tests with pytest..."
-          pytest --maxfail=1 --disable-warnings -q
+          pytest tests/ --maxfail=1 --disable-warnings -q
+
 
       # Step 5: Message if all tests passed
       - name: Tests Passed
